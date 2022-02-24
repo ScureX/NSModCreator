@@ -1,0 +1,88 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="750" d:DesignHeight="350"
+        x:Class="NSModCreator.MainWindow"
+        Title="NSModCreator" WindowStartupLocation="CenterScreen" Background="#424242" MinWidth="800" MinHeight="350">
+
+    <StackPanel Margin="20">
+
+      <Grid ColumnDefinitions="*,*,*">
+        <TextBlock Grid.Column="0" Padding="0,0,0,10" Foreground="#ffcb2e" FontSize="20" FontWeight="Bold"> Takyon's Mod Creator </TextBlock>
+        <TextBlock Grid.Column="2" Padding="0,10,5,0" Foreground="#ffcb2e" FontSize="15" HorizontalAlignment="Right"> For help hover over the labels </TextBlock>
+      </Grid>
+      
+      <!-- Install Folder  -->
+      <Border Margin="0,0,0,0" BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
+        <StackPanel>
+          <Label Foreground="White" ToolTip.Tip="Path where the mod will be installed">Install Folder</Label>
+          <TextBox CornerRadius="5" x:Name="tb_folderPath" Foreground="Black" Background="#ffcb2e" Watermark="C:\Games\Origin\Titanfall2\R2Northstar\mods"/>
+        </StackPanel>
+      </Border>
+
+      <!-- Mod Settings -->
+      <Border Margin="0,10,0,0" BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
+        <StackPanel>
+          <Grid ColumnDefinitions="*,*,*,*,*">
+            
+            <!-- Mod Name -->
+            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+              <Label Foreground="White">Mod Name</Label>
+              <TextBox CornerRadius="5" x:Name="tb_modName" Foreground="Black" Background="#ffcb2e" Watermark="YourName.ModName"/>
+            </StackPanel>
+
+            <!-- Mod Loadprio -->
+            <StackPanel Grid.Column="1" Margin="0,0,10,0">
+              <Label Foreground="White" ToolTip.Tip="Doesn't matter for most projects and can be left default. May be the reason for mods conflicting however">Load Priority</Label>
+              <NumericUpDown CornerRadius="5" x:Name="tb_modLoadPriority" Foreground="Black" Background="#ffcb2e" Value="1"/>
+            </StackPanel>
+
+            <!-- Mod Required on client -->
+            <StackPanel Grid.Column="2" Margin="0,0,10,0">
+              <Label Foreground="White" ToolTip.Tip="Whether or not your mod is required on Client. True for mods that modify client files, false for server only" HorizontalAlignment="Center">RequiredOnClient</Label>
+              <CheckBox x:Name="tb_modRequiredOnClient" Foreground="Black" IsChecked="true" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Run on -->
+            <StackPanel Grid.Column="3" Margin="0,0,10,0">
+              <Label Foreground="White" ToolTip.Tip="Depends on where your scripts are going to run">Run on</Label>
+              <ComboBox CornerRadius="5" x:Name="tb_modRunOn" Foreground="Black" Background="#ffcb2e" SelectedIndex="0">
+                <TextBlock>CLIENT</TextBlock>
+                <TextBlock>SERVER</TextBlock>
+                <TextBlock>BOTH</TextBlock>
+              </ComboBox>
+            </StackPanel>
+
+            <!-- Mod Version -->
+            <StackPanel Grid.Column="4">
+              <Label Foreground="White">Version</Label>
+              <TextBox CornerRadius="5" x:Name="tb_modVersion" Foreground="Black" Background="#ffcb2e" Text="1.0.0"/>
+            </StackPanel>
+            
+          </Grid>
+
+          <!-- Mod Description -->
+          <StackPanel Grid.Column="4">
+            <Label Foreground="White">Description</Label>
+            <TextBox CornerRadius="5" x:Name="tb_modDescription" Foreground="Black" Background="#ffcb2e" Watermark="This is a very cool mod that only does cool stuff"/>
+          </StackPanel>
+          
+        </StackPanel>
+      </Border>
+
+      <!-- Buttons -->
+      <Border Margin="0,10,0,0" BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+          </Grid.ColumnDefinitions>
+          <Button CornerRadius="5" Grid.Column="0" Click="OnClearClicked" Background="#ffcb2e">Clear</Button>
+          <Label x:Name="lbl_status" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center"></Label>
+          <Button CornerRadius="5" Grid.Column="1" Click="OnCreateClicked" Background="#ffcb2e" Content="Create"/>
+        </Grid>
+      </Border>
+      
+    </StackPanel>
+</Window>

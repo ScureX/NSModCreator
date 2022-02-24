@@ -1,0 +1,5 @@
+﻿global function PLACEHOLDER_INTINAME
+
+void function PLACEHOLDER_INTINAME(){
+	// initialize here
+}

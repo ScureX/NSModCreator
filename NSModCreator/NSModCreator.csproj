@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="TEMPLATE_CLISER_mod.json.txt" />
+    <None Remove="TEMPLATE_CLI_mod.json.txt" />
+    <None Remove="TEMPLATE_file.nut.txt" />
+    <None Remove="TEMPLATE_SER_mod.json.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TEMPLATE_CLISER_mod.json.txt" />
+    <EmbeddedResource Include="TEMPLATE_CLI_mod.json.txt" />
+    <EmbeddedResource Include="TEMPLATE_SER_mod.json.txt" />
+    <EmbeddedResource Include="TEMPLATE_file.nut.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.10" />
+   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Error.axaml.cs">
+      <DependentUpon>Error.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

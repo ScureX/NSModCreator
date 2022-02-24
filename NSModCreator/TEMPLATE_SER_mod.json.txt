@@ -1,0 +1,16 @@
+﻿{
+	"Name": "PLACEHOLDER_NAME",
+	"Description": "PLACEHOLDER_DESC",
+	"LoadPriority": PLACEHOLDER_LOADPRIO,
+	"RequiredOnClient": PLACEHOLDER_REQONCLI,
+	"Version": "PLACEHOLDER_VERSION",
+	"Scripts": [
+		{
+			"Path": "PLACEHOLDER_FILENAME.nut",
+			"RunOn": "SERVER",
+			"ServerCallback": {
+				"After": "PLACEHOLDER_INTINAME"
+			}
+		}
+	]
+}
