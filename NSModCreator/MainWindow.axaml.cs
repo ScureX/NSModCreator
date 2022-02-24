@@ -12,6 +12,13 @@ namespace NSModCreator
     public partial class MainWindow : Window
     {
         private TextBox tb_folderPath;
+        private TextBox tb_modName;
+        private NumericUpDown tb_modLoadPriority;
+        private CheckBox tb_modRequiredOnClient;
+        private ComboBox tb_modRunOn;
+        private TextBox tb_modVersion;
+        private TextBox tb_modDescription;
+        private Label lbl_status;
 
         public MainWindow()
         {
@@ -25,19 +32,18 @@ namespace NSModCreator
         {
             AvaloniaXamlLoader.Load(this);
             tb_folderPath = this.FindControl<TextBox>("tb_folderPath");
+            tb_folderPath = this.FindControl<TextBox>("tb_folderPath");
+            tb_modName = this.FindControl<TextBox>("tb_modName");
+            tb_modLoadPriority = this.FindControl<NumericUpDown>("tb_modLoadPriority");
+            tb_modRequiredOnClient = this.FindControl<CheckBox>("tb_modRequiredOnClient");
+            tb_modRunOn = this.FindControl<ComboBox>("tb_modRunOn");
+            tb_modVersion = this.FindControl<TextBox>("tb_modVersion");
+            tb_modDescription = this.FindControl<TextBox>("tb_modDescription");
+            lbl_status = this.FindControl<Label>("lbl_status");
         }
 
         public void OnCreateClicked(object sender, RoutedEventArgs e)
         {
-            tb_folderPath = this.FindControl<TextBox>("tb_folderPath");
-            TextBox tb_modName = this.FindControl<TextBox>("tb_modName");
-            NumericUpDown tb_modLoadPriority = this.FindControl<NumericUpDown>("tb_modLoadPriority");
-            CheckBox tb_modRequiredOnClient = this.FindControl<CheckBox>("tb_modRequiredOnClient");
-            ComboBox tb_modRunOn = this.FindControl<ComboBox>("tb_modRunOn");
-            TextBox tb_modVersion = this.FindControl<TextBox>("tb_modVersion");
-            TextBox tb_modDescription = this.FindControl<TextBox>("tb_modDescription");
-            Label lbl_status = this.FindControl<Label>("lbl_status");
-
             lbl_status.Content = "Getting Values...";
 
             // mod.json
@@ -134,7 +140,7 @@ namespace NSModCreator
 
             /* cleanup*/
             lbl_status.Content = "Created Mod at " + path;
-            ClearFields(tb_folderPath, tb_modName, tb_modLoadPriority, tb_modVersion, tb_modDescription);
+            ClearFields();
         }
 
         public void OnClearClicked(object sender, RoutedEventArgs e)
@@ -144,7 +150,7 @@ namespace NSModCreator
             NumericUpDown tb_modLoadPriority = this.FindControl<NumericUpDown>("tb_modLoadPriority");
             TextBox tb_modVersion = this.FindControl<TextBox>("tb_modVersion");
             TextBox tb_modDescription = this.FindControl<TextBox>("tb_modDescription");
-            ClearFields(tb_folderPath, tb_modName, tb_modLoadPriority, tb_modVersion, tb_modDescription);
+            ClearFields();
         }
 
         private async void OnBrowseClicked(object? sender, RoutedEventArgs e)
@@ -155,8 +161,7 @@ namespace NSModCreator
             tb_folderPath.Text = directory;
         }
 
-        private void ClearFields(TextBox tb_folderPath, TextBox tb_modName, NumericUpDown tb_modLoadPriority,
-            TextBox tb_modVersion, TextBox tb_modDescription)
+        private void ClearFields()
         {
             tb_folderPath.Text = "";
             tb_modName.Text = "";
