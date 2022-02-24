@@ -5,10 +5,10 @@ using Avalonia.Markup.Xaml;
 using Microsoft.VisualBasic.FileIO;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.IO.Compression;
 
 namespace NSModCreator
 {
@@ -247,6 +247,10 @@ namespace NSModCreator
                 fs.Write(info, 0, info.Length);
                 lbl_statusPublish.Content = "Release created at: " + tb_folderPathOutput.Text;
             }
+
+            // zip it up
+            ZipFile.CreateFromDirectory(tb_folderPathOutput.Text, tempFolder + @"\release.zip");
+            FileSystem.MoveFile(tempFolder + @"\release.zip", tb_folderPathOutput.Text + @"\release.zip");
         }
 
         public void OnClearClickedPublish(object sender, RoutedEventArgs e)
