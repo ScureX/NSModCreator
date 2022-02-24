@@ -8,12 +8,18 @@
     <None Remove=".gitignore" />
     <None Remove="TEMPLATE_CLISER_mod.json.txt" />
     <None Remove="TEMPLATE_CLI_mod.json.txt" />
+    <None Remove="TEMPLATE_D_manifest.json.txt" />
     <None Remove="TEMPLATE_file.nut.txt" />
+    <None Remove="TEMPLATE_ND_manifest.json.txt" />
+    <None Remove="TEMPLATE_readme.md.txt" />
     <None Remove="TEMPLATE_SER_mod.json.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TEMPLATE_CLISER_mod.json.txt" />
     <EmbeddedResource Include="TEMPLATE_CLI_mod.json.txt" />
+    <EmbeddedResource Include="TEMPLATE_readme.md.txt" />
+    <EmbeddedResource Include="TEMPLATE_ND_manifest.json.txt" />
+    <EmbeddedResource Include="TEMPLATE_D_manifest.json.txt" />
     <EmbeddedResource Include="TEMPLATE_SER_mod.json.txt" />
     <EmbeddedResource Include="TEMPLATE_file.nut.txt" />
   </ItemGroup>
@@ -22,10 +28,6 @@
     <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
    </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Error.axaml.cs">
-      <DependentUpon>Error.axaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
 </Project>
