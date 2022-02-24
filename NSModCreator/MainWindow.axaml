@@ -2,7 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="750" d:DesignHeight="350"
+        Width="750"
+        Height="400"
         x:Class="NSModCreator.MainWindow"
         Title="NSModCreator" WindowStartupLocation="CenterScreen" Background="#424242" MinWidth="800" MinHeight="350">
 
@@ -18,6 +19,8 @@
         <StackPanel>
           <Label Foreground="White" ToolTip.Tip="Path where the mod will be installed">Install Folder</Label>
           <TextBox CornerRadius="5" x:Name="tb_folderPath" Foreground="Black" Background="#ffcb2e" Watermark="C:\Games\Origin\Titanfall2\R2Northstar\mods"/>
+          
+          <Button CornerRadius="5" Click="OnBrowseClicked" Background="#ffcb2e" Content="Browse"/>
         </StackPanel>
       </Border>
 
@@ -79,7 +82,7 @@
             <ColumnDefinition Width="auto"/>
           </Grid.ColumnDefinitions>
           <Button CornerRadius="5" Grid.Column="0" Click="OnClearClicked" Background="#ffcb2e">Clear</Button>
-          <Label x:Name="lbl_status" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center"></Label>
+          <Label x:Name="lbl_status" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center" MaxWidth="550"></Label>
           <Button CornerRadius="5" Grid.Column="1" Click="OnCreateClicked" Background="#ffcb2e" Content="Create"/>
         </Grid>
       </Border>
