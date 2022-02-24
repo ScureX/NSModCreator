@@ -54,7 +54,7 @@ namespace NSModCreator
             try
             {
                 modName = tb_modName.Text.Trim();
-                path = tb_folderPath.Text.Trim() + @"\" + modName;
+                path = tb_folderPath.Text.Trim() + "/" + modName;
                 loadPriority = tb_modLoadPriority.Text.Trim();
                 requiredOnClient = (bool)tb_modRequiredOnClient.IsChecked ? "true" : "false";
                 version = tb_modVersion.Text.Trim();
@@ -86,10 +86,10 @@ namespace NSModCreator
                 return;
             }
 
-            Directory.CreateDirectory(path + @"\mod\scripts\vscripts");
+            Directory.CreateDirectory(path + "/mod/scripts/vscripts");
 
             // mod.json
-            using (FileStream fs = File.Create(path + @"\mod.json"))
+            using (FileStream fs = File.Create(path + "/mod.json"))
             {
                 byte[] info = { };
                 // TODO check if this logic checks out, make only those 3 available
@@ -118,7 +118,7 @@ namespace NSModCreator
 
 
             // file.nut
-            using (FileStream fs = File.Create(path + @"\mod\scripts\vscripts\" + fileName + ".nut"))
+            using (FileStream fs = File.Create(path + "/mod/scripts/vscripts/" + fileName + ".nut"))
             {
                 string res = GetEmbeddedResourceContent("NSModCreator.TEMPLATE_file.nut.txt", modName, loadPriority, requiredOnClient, version, description, fileName, initName);
                 byte[] info = new UTF8Encoding(true).GetBytes(res);
