@@ -204,7 +204,16 @@ namespace NSModCreator
                 tempFolder += x[i] + "/";
             }
 
-            Directory.CreateDirectory(tempFolder + @"/Release");
+            try
+            {
+                Directory.CreateDirectory(tempFolder + @"/Release");
+            }
+            catch (Exception)
+            {
+                lbl_statusPublish.Content = "Error: Output directory doesnt exist!";
+                return;
+            }
+
             FileSystem.CopyDirectory(tb_folderPathPublish.Text, tempFolder + @"/Release", UIOption.AllDialogs);
 
             // copy in actual mod, delete temp dir
@@ -255,7 +264,14 @@ namespace NSModCreator
 
         public void OnClearClickedPublish(object sender, RoutedEventArgs e)
         {
-
+            tb_folderPathOutput.Text = "";
+            tb_folderPathPublish.Text = "";
+            tb_modNamePublish.Text = "";
+            tb_modVersionPublish.Text = "";
+            tb_modWebsitePublish.Text = "";
+            tb_modDescriptionPublish.Text = "";
+            tb_modDependenciesPublish.Text = "";
+            tb_iconPathPublish.Text = "";
         }
 
         private async void Publish_OnBrowseClicked(object? sender, RoutedEventArgs e)
@@ -274,7 +290,8 @@ namespace NSModCreator
 
         private async void Publish_OnBrowseClickedIcon(object? sender, RoutedEventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
+            OpenFileDialog dialog = new();
+            dialog.AllowMultiple = false;
             var result = await dialog.ShowAsync(this);
             if (result == null) return;
             tb_iconPathPublish.Text = result[0];

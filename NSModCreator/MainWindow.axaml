@@ -7,7 +7,7 @@
         x:Class="NSModCreator.MainWindow"
         Title="NSModCreator" WindowStartupLocation="CenterScreen" Background="#424242" MinWidth="800" MinHeight="420">
 
-  <TabControl SelectedIndex="1">
+  <TabControl>
     <!-- Create Tab -->
     <TabItem Header="Create" VerticalContentAlignment="Center" Foreground="#ffcb2e">
       <StackPanel Margin="20">
@@ -151,8 +151,8 @@
               </StackPanel>
 
               <StackPanel Margin="0,0,10,0">
-                <!-- Mod Folder  -->
-                <Label Foreground="White" ToolTip.Tip="Path to the mod icon. 256x256 and PNG">Mod Folder</Label>
+                <!-- Icon Path -->
+                <Label Foreground="White" ToolTip.Tip="Path to the mod icon. 256x256 and PNG">Icon Path</Label>
                 <TextBox CornerRadius="5" x:Name="tb_iconPathPublish" Foreground="Black" Background="#ffcb2e" Watermark="C:\Images\icon.png"/>
                 <Button CornerRadius="5" Click="Publish_OnBrowseClickedIcon" Background="#ffcb2e" Content="Browse"/>
               </StackPanel>
@@ -168,7 +168,9 @@
                 <ColumnDefinition Width="auto"/>
               </Grid.ColumnDefinitions>
               <Button CornerRadius="5" Grid.Column="0" Click="OnClearClickedPublish" Background="#ffcb2e">Clear</Button>
-              <Label x:Name="lbl_statusPublish" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center" MaxWidth="550"></Label>
+              <Label x:Name="lbl_statusPublish" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center" MaxWidth="550">
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+              </Label>
               <Button CornerRadius="5" Grid.Column="1" Click="OnCreateClickedPublish" Background="#ffcb2e" Content="Create"/>
             </Grid>
           </Border>
