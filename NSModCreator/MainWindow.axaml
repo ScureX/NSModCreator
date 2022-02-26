@@ -168,9 +168,7 @@
                 <ColumnDefinition Width="auto"/>
               </Grid.ColumnDefinitions>
               <Button CornerRadius="5" Grid.Column="0" Click="OnClearClickedPublish" Background="#ffcb2e">Clear</Button>
-              <Label x:Name="lbl_statusPublish" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center" MaxWidth="550">
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              </Label>
+              <Label x:Name="lbl_statusPublish" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center" MaxWidth="550"/>
               <Button CornerRadius="5" Grid.Column="1" Click="OnCreateClickedPublish" Background="#ffcb2e" Content="Create"/>
             </Grid>
           </Border>
