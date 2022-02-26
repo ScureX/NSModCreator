@@ -74,21 +74,6 @@
               <TextBox CornerRadius="5" x:Name="tb_modDescription" Foreground="Black" Background="#ffcb2e" Watermark="This is a very cool mod that only does cool stuff"/>
             </StackPanel>
   
-          <!-- Buttons -->
-          <Border Margin="0,10,0,0" BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
-            <Grid>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-              </Grid.ColumnDefinitions>
-              <Button CornerRadius="5" Grid.Column="0" Click="OnClearClickedPublish" Background="#ffcb2e">Clear</Button>
-              <Label x:Name="lbl_statusPublish" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center" MaxWidth="550"/>
-              <Button CornerRadius="5" Grid.Column="1" Click="OnCreateClickedPublish" Background="#ffcb2e" Content="Create"/>
-            </Grid>
-          </Border>
-            
-          </Grid>
-
           </StackPanel>
         </Border>
 
