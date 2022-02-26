@@ -1,0 +1,9 @@
+﻿{
+    "name": "PLACEHOLDER_NAME",
+    "version_number": "PLACEHOLDER_VERSION",
+    "website_url": "PLACEHOLDER_WEBSITE",
+    "description": "PLACEHOLDER_DESC",
+    "dependencies": [
+        PLACEHOLDER_DEP
+    ]
+}
