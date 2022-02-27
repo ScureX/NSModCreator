@@ -299,14 +299,21 @@ namespace NSModCreator
 
         private void PreloadPublishData(TextBox tb_folderPathPublish)
         {
-            using (StreamReader r = new StreamReader(tb_folderPathPublish.Text + "/mod.json"))
+            try
             {
-                string json = r.ReadToEnd();
-                ModJson modJson = JsonConvert.DeserializeObject<ModJson>(json);
+                using (StreamReader r = new StreamReader(tb_folderPathPublish.Text + "/mod.json"))
+                {
+                    string json = r.ReadToEnd();
+                    ModJson modJson = JsonConvert.DeserializeObject<ModJson>(json);
 
-                tb_modNamePublish.Text = modJson.Name;
-                tb_modVersionPublish.Text = modJson.Version;
-                tb_modDescriptionPublish.Text = modJson.Description;
+                    tb_modNamePublish.Text = modJson.Name;
+                    tb_modVersionPublish.Text = modJson.Version;
+                    tb_modDescriptionPublish.Text = modJson.Description;
+                }
+            }
+            catch (Exception)
+            {
+                lbl_statusPublish.Content = "Warning: Couldn't find mod.json";
             }
         }
 
