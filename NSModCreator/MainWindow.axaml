@@ -10,7 +10,7 @@
 
   <TabControl>
     <!-- Create Tab -->
-    <TabItem localizations:LocalizationAttachedPropertyHolder.Uid="CreateTab" Header="Create" VerticalContentAlignment="Center" Foreground="#ffcb2e">
+    <TabItem Header="Create" VerticalContentAlignment="Center" Foreground="#ffcb2e">
       <StackPanel Margin="20">
 
         <Grid ColumnDefinitions="*,*,*">
