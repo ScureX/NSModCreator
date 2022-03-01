@@ -11,6 +11,9 @@
   <TabControl>
     <!-- Create Tab -->
     <TabItem Header="Create" VerticalContentAlignment="Center" Foreground="#ffcb2e">
+      <TabItem.Header>
+        <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="CreateTab" VerticalAlignment="Center">Create</TextBlock>
+      </TabItem.Header>
       <StackPanel Margin="20">
 
         <Grid ColumnDefinitions="*,*,*">
@@ -107,7 +110,10 @@
     </TabItem>
 
     <!-- Publish Tab -->
-    <TabItem localizations:LocalizationAttachedPropertyHolder.Uid="PublishTab" Header="Publish" HorizontalContentAlignment="Center" Foreground="#ffcb2e">
+    <TabItem Header="Publish" HorizontalContentAlignment="Center" Foreground="#ffcb2e">
+      <TabItem.Header>
+        <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="PublishTab" VerticalAlignment="Center">Publish</TextBlock>
+      </TabItem.Header>
       <ScrollViewer AllowAutoHide="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" >
         <StackPanel Margin="20">
 
@@ -189,7 +195,7 @@
           <Border Margin="0,10,0,0" BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
             <Grid ColumnDefinitions="*,10*,auto">
               <Button localizations:LocalizationAttachedPropertyHolder.Uid="ClearButton" CornerRadius="5" Grid.Column="0" Click="OnClearClickedPublish" Background="#ffcb2e">Clear</Button>
-              <TextBlock x:Name="lbl_statusPublish" Grid.Column="1" VerticalAlignment="Center" Foreground="#ffcb2e" TextAlignment="Center" MaxWidth="550" TextWrapping="Wrap" Text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+              <TextBlock x:Name="lbl_statusPublish" Grid.Column="1" VerticalAlignment="Center" Foreground="#ffcb2e" TextAlignment="Center" MaxWidth="550" TextWrapping="Wrap" />
               <Button localizations:LocalizationAttachedPropertyHolder.Uid="CreateButton" CornerRadius="5" Grid.Column="2" Click="OnCreateClickedPublish" Background="#ffcb2e" Content="Create"/>
             </Grid>
           </Border>
