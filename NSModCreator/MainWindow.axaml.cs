@@ -175,6 +175,9 @@ namespace NSModCreator
             System.Globalization.CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(countrycode); // This changes current Culture settings to given Locale
             Language = countrycode; // Refresh Current Language, not necessary if you use a dropdown menu
             InitializeComponent(); // idk if this is safe, but we DO need to reload components for the language resource change to work
+
+            // TODO: Dynamically adjust window size here or inside InitializeComponent()
+            // cuz many language have different text height than english which make part of the UI disappear
         }
 
         public void OnLangClicked(object sender, RoutedEventArgs e)
@@ -195,7 +198,6 @@ namespace NSModCreator
                 ChangeLanguageTo("en-US");
                 return;
             }
-            
         }
 
         private async void Create_OnBrowseClicked(object? sender, RoutedEventArgs e)
