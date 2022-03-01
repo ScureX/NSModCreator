@@ -9,6 +9,8 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.IO.Compression;
+using System.Threading;
+using System.Globalization;
 
 namespace NSModCreator
 {
@@ -59,6 +61,7 @@ namespace NSModCreator
 
             lbl_status.Text = "Getting Values...";
 
+            
             // mod.json
             string path;
             string modName;
@@ -160,6 +163,39 @@ namespace NSModCreator
             TextBox tb_modVersion = this.FindControl<TextBox>("tb_modVersion");
             TextBox tb_modDescription = this.FindControl<TextBox>("tb_modDescription");
             ClearFieldsCreate(tb_folderPath, tb_modName, tb_modLoadPriority, tb_modVersion, tb_modDescription);
+        }
+
+        // Initialize variable used for language selection, not necessary if you use a drop down menu
+        string Language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+
+        /* Call this function with Locale codes like "en-US" or "zh-Hans",
+           Check https://docs.microsoft.com/zh-cn/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c */
+        void ChangeLanguageTo(string countrycode) 
+        {
+            System.Globalization.CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(countrycode); // This changes current Culture settings to given Locale
+            Language = countrycode; // Refresh Current Language, not necessary if you use a dropdown menu
+            InitializeComponent(); // idk if this is safe, but we DO need to reload components for the language resource change to work
+        }
+
+        public void OnLangClicked(object sender, RoutedEventArgs e)
+        {
+            /* yanderedev style fancy code for switching language */
+            if (Language == "en-US") 
+            {
+                ChangeLanguageTo("de-DE");
+                return;
+            }
+            if (Language == "de-DE")
+            {
+                ChangeLanguageTo("zh-Hans");
+                return;
+            }
+            if (Language == "zh-Hans")
+            {
+                ChangeLanguageTo("en-US");
+                return;
+            }
+            
         }
 
         private async void Create_OnBrowseClicked(object? sender, RoutedEventArgs e)

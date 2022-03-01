@@ -44,8 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Localizations\AppResources.zh-Hans.resx">
-      <LastGenOutput>AppResources.zh-Hans.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Localizations\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

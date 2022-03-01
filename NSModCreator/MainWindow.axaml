@@ -103,6 +103,7 @@
             <Button localizations:LocalizationAttachedPropertyHolder.Uid="ClearButton" CornerRadius="5" Grid.Column="0" Click="OnClearClicked" Background="#ffcb2e">Clear</Button>
             <TextBlock x:Name="lbl_status" Grid.Column="1" VerticalAlignment="Center" Foreground="#ffcb2e" TextAlignment="Center" MaxWidth="550" TextWrapping="Wrap"/>
             <Button localizations:LocalizationAttachedPropertyHolder.Uid="CreateButton" CornerRadius="5" Grid.Column="2" Click="OnCreateClicked" Background="#ffcb2e" Content="Create"/>
+            <Button localizations:LocalizationAttachedPropertyHolder.Uid="LangButton" CornerRadius="5" Grid.Column="1" Click="OnLangClicked" Background="#ffcb2e" Content="Language"/>
           </Grid>
         </Border>
 
@@ -197,6 +198,7 @@
               <Button localizations:LocalizationAttachedPropertyHolder.Uid="ClearButton" CornerRadius="5" Grid.Column="0" Click="OnClearClickedPublish" Background="#ffcb2e">Clear</Button>
               <TextBlock x:Name="lbl_statusPublish" Grid.Column="1" VerticalAlignment="Center" Foreground="#ffcb2e" TextAlignment="Center" MaxWidth="550" TextWrapping="Wrap" />
               <Button localizations:LocalizationAttachedPropertyHolder.Uid="CreateButton" CornerRadius="5" Grid.Column="2" Click="OnCreateClickedPublish" Background="#ffcb2e" Content="Create"/>
+              
             </Grid>
           </Border>
             

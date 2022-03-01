@@ -141,6 +141,9 @@
   <data name="InstallFolder" xml:space="preserve">
     <value>Install Folder</value>
   </data>
+  <data name="LangButton" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="LoadPriority" xml:space="preserve">
     <value>Load Priority</value>
   </data>

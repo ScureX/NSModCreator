@@ -133,6 +133,15 @@ namespace NSModCreator.Localizations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string LangButton {
+            get {
+                return ResourceManager.GetString("LangButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load Priority.
         /// </summary>
         internal static string LoadPriority {

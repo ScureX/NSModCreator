@@ -141,6 +141,9 @@
   <data name="InstallFolder" xml:space="preserve">
     <value>安装路径</value>
   </data>
+  <data name="LangButton" xml:space="preserve">
+    <value>中文</value>
+  </data>
   <data name="LoadPriority" xml:space="preserve">
     <value>读取优先级</value>
   </data>
