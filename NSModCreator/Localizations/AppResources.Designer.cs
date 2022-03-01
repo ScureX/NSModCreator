@@ -196,15 +196,6 @@ namespace NSModCreator.Localizations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Doesn&apos;t matter for most projects and can be left default. May be the reason for mods conflicting however.
-        /// </summary>
-        internal static string ModPrioTip {
-            get {
-                return ResourceManager.GetString("ModPrioTip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Output Folder.
         /// </summary>
         internal static string OutputFolder {
@@ -237,6 +228,69 @@ namespace NSModCreator.Localizations {
         internal static string RunOn {
             get {
                 return ResourceManager.GetString("RunOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path to the mod icon. 256x256 and PNG.
+        /// </summary>
+        internal static string ToolTipIconPath {
+            get {
+                return ResourceManager.GetString("ToolTipIconPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path where the mod will be installed.
+        /// </summary>
+        internal static string ToolTipInstallFolder {
+            get {
+                return ResourceManager.GetString("ToolTipInstallFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doesn&apos;t matter for most projects and can be left default. May be the reason for mods conflicting however.
+        /// </summary>
+        internal static string ToolTipLoadPriority {
+            get {
+                return ResourceManager.GetString("ToolTipLoadPriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path to the mod you want to release.
+        /// </summary>
+        internal static string ToolTipModFolder {
+            get {
+                return ResourceManager.GetString("ToolTipModFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path where the release will be stored.
+        /// </summary>
+        internal static string ToolTipOutputFolder {
+            get {
+                return ResourceManager.GetString("ToolTipOutputFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whether or not your mod is required on Client. True for mods that modify client files, false for server only.
+        /// </summary>
+        internal static string ToolTipRequiredOnClient {
+            get {
+                return ResourceManager.GetString("ToolTipRequiredOnClient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Depends on where your scripts are going to run.
+        /// </summary>
+        internal static string ToolTipRunOn {
+            get {
+                return ResourceManager.GetString("ToolTipRunOn", resourceCulture);
             }
         }
         

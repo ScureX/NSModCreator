@@ -162,9 +162,6 @@
   <data name="ModNameWatermark" xml:space="preserve">
     <value>YourName.ModName</value>
   </data>
-  <data name="ModPrioTip" xml:space="preserve">
-    <value>Doesn't matter for most projects and can be left default. May be the reason for mods conflicting however</value>
-  </data>
   <data name="OutputFolder" xml:space="preserve">
     <value>Output Folder</value>
   </data>
@@ -176,6 +173,27 @@
   </data>
   <data name="RunOn" xml:space="preserve">
     <value>Run on</value>
+  </data>
+  <data name="ToolTipIconPath" xml:space="preserve">
+    <value>Path to the mod icon. 256x256 and PNG</value>
+  </data>
+  <data name="ToolTipInstallFolder" xml:space="preserve">
+    <value>Path where the mod will be installed</value>
+  </data>
+  <data name="ToolTipLoadPriority" xml:space="preserve">
+    <value>Doesn't matter for most projects and can be left default. May be the reason for mods conflicting however</value>
+  </data>
+  <data name="ToolTipModFolder" xml:space="preserve">
+    <value>Path to the mod you want to release</value>
+  </data>
+  <data name="ToolTipOutputFolder" xml:space="preserve">
+    <value>Path where the release will be stored</value>
+  </data>
+  <data name="ToolTipRequiredOnClient" xml:space="preserve">
+    <value>Whether or not your mod is required on Client. True for mods that modify client files, false for server only</value>
+  </data>
+  <data name="ToolTipRunOn" xml:space="preserve">
+    <value>Depends on where your scripts are going to run</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Version</value>

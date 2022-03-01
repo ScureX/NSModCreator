@@ -162,9 +162,6 @@
   <data name="ModNameWatermark" xml:space="preserve">
     <value>你的名称.模组的名称</value>
   </data>
-  <data name="ModPrioTip" xml:space="preserve">
-    <value>Doesn't matter for most projects and can be left default. May be the reason for mods conflicting however</value>
-  </data>
   <data name="OutputFolder" xml:space="preserve">
     <value>输出文件夹</value>
   </data>
@@ -176,6 +173,27 @@
   </data>
   <data name="RunOn" xml:space="preserve">
     <value>执行于</value>
+  </data>
+  <data name="ToolTipIconPath" xml:space="preserve">
+    <value>todo</value>
+  </data>
+  <data name="ToolTipInstallFolder" xml:space="preserve">
+    <value>todo</value>
+  </data>
+  <data name="ToolTipLoadPriority" xml:space="preserve">
+    <value>todo</value>
+  </data>
+  <data name="ToolTipModFolder" xml:space="preserve">
+    <value>todo</value>
+  </data>
+  <data name="ToolTipOutputFolder" xml:space="preserve">
+    <value>todo</value>
+  </data>
+  <data name="ToolTipRequiredOnClient" xml:space="preserve">
+    <value>todo</value>
+  </data>
+  <data name="ToolTipRunOn" xml:space="preserve">
+    <value>todo</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>版本</value>

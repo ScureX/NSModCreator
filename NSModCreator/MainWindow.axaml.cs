@@ -21,7 +21,7 @@ namespace NSModCreator
         TextBox tb_modWebsitePublish;
         TextBox tb_modDescriptionPublish;
         TextBox tb_modDependenciesPublish;
-        Label lbl_statusPublish;
+        TextBlock lbl_statusPublish;
         TextBox tb_iconPathPublish;
 
         public MainWindow()
@@ -42,7 +42,7 @@ namespace NSModCreator
             tb_modWebsitePublish = this.FindControl<TextBox>("tb_modWebsitePublish");
             tb_modDescriptionPublish = this.FindControl<TextBox>("tb_modDescriptionPublish");
             tb_modDependenciesPublish = this.FindControl<TextBox>("tb_modDependenciesPublish");
-            lbl_statusPublish = this.FindControl<Label>("lbl_statusPublish");
+            lbl_statusPublish = this.FindControl<TextBlock>("lbl_statusPublish");
             tb_iconPathPublish = this.FindControl<TextBox>("tb_iconPathPublish");
         }
 
@@ -55,9 +55,9 @@ namespace NSModCreator
             ComboBox tb_modRunOn = this.FindControl<ComboBox>("tb_modRunOn");
             TextBox tb_modVersion = this.FindControl<TextBox>("tb_modVersion");
             TextBox tb_modDescription = this.FindControl<TextBox>("tb_modDescription");
-            Label lbl_status = this.FindControl<Label>("lbl_status");
+            TextBlock lbl_status = this.FindControl<TextBlock>("lbl_status");
 
-            lbl_status.Content = "Getting Values...";
+            lbl_status.Text = "Getting Values...";
 
             // mod.json
             string path;
@@ -85,7 +85,7 @@ namespace NSModCreator
             }
             catch (NullReferenceException ex)
             {
-                lbl_status.Content = "Error: Some fields have incorrect values!";
+                lbl_status.Text = "Error: Some fields have incorrect values!";
                 return;
             }
 
@@ -98,11 +98,11 @@ namespace NSModCreator
             }
 
             /* format that shit */
-            lbl_status.Content = "Creating Files...";
+            lbl_status.Text = "Creating Files...";
             // make folders
             if (Directory.Exists(path))
             {
-                lbl_status.Content = "Error: Directory/Files already exists!";
+                lbl_status.Text = "Error: Directory/Files already exists!";
                 return;
             }
 
@@ -148,7 +148,7 @@ namespace NSModCreator
             }
 
             /* cleanup*/
-            lbl_status.Content = "Created Mod at " + path.Replace("\\", "/");
+            lbl_status.Text = "Created Mod at " + path.Replace("\\", "/");
             ClearFieldsCreate(tb_folderPath, tb_modName, tb_modLoadPriority, tb_modVersion, tb_modDescription);
         }
 
@@ -185,14 +185,14 @@ namespace NSModCreator
             // check if all fields are filled out
             if(String.IsNullOrEmpty(tb_folderPathOutput.Text) || String.IsNullOrEmpty(tb_folderPathPublish.Text) || String.IsNullOrEmpty(tb_modNamePublish.Text) ||String.IsNullOrEmpty(tb_modVersionPublish.Text) || String.IsNullOrEmpty(tb_iconPathPublish.Text))
             {
-                lbl_statusPublish.Content = "Error: Some fields are not filled out!";
+                lbl_statusPublish.Text = "Error: Some fields are not filled out!";
                 return;
             }
 
             // make folders
             if (Directory.Exists(tb_folderPathOutput.Text))
             {
-                lbl_statusPublish.Content = "Error: Directory/Files already exists!";
+                lbl_statusPublish.Text = "Error: Directory/Files already exists!";
                 return;
             }
 
@@ -210,7 +210,7 @@ namespace NSModCreator
             }
             catch (Exception)
             {
-                lbl_statusPublish.Content = "Error: Output directory doesnt exist!";
+                lbl_statusPublish.Text = "Error: Output directory doesnt exist!";
                 return;
             }
 
@@ -254,7 +254,7 @@ namespace NSModCreator
 
                 byte[] info = new UTF8Encoding(true).GetBytes(res);
                 fs.Write(info, 0, info.Length);
-                lbl_statusPublish.Content = "Release created at: " + tb_folderPathOutput.Text;
+                lbl_statusPublish.Text = "Release created at: " + tb_folderPathOutput.Text;
             }
 
             // zip it up
@@ -313,7 +313,7 @@ namespace NSModCreator
             }
             catch (Exception)
             {
-                lbl_statusPublish.Content = "Warning: Couldn't find mod.json";
+                lbl_statusPublish.Text = "Warning: Couldn't find mod.json";
             }
         }
 

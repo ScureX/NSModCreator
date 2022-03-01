@@ -21,7 +21,11 @@
         <!-- Install Folder  -->
         <Border Margin="0,0,0,0" BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
           <StackPanel>
-            <Label localizations:LocalizationAttachedPropertyHolder.Uid="InstallFolder" Foreground="White" ToolTip.Tip="Path where the mod will be installed">Install Folder</Label>
+            <Label localizations:LocalizationAttachedPropertyHolder.Uid="InstallFolder" Foreground="White" Content="Install Folder">
+              <ToolTip.Tip>
+                <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="ToolTipInstallFolder" Text="Path where the mod will be installed"/>
+              </ToolTip.Tip>
+            </Label>
             <TextBox CornerRadius="5" x:Name="tb_folderPath" Foreground="Black" Background="#ffcb2e" Watermark="C:\Games\Origin\Titanfall2\R2Northstar\mods"/>
 
             <Button localizations:LocalizationAttachedPropertyHolder.Uid="BrowseButton" CornerRadius="5" Click="Create_OnBrowseClicked" Background="#ffcb2e" Content="Browse"/>
@@ -41,19 +45,31 @@
 
               <!-- Mod Loadprio -->
               <StackPanel Grid.Column="1" Margin="0,0,10,0">
-                <Label  localizations:LocalizationAttachedPropertyHolder.Uid="LoadPriority" Foreground="White" ToolTip.Tip="Doesn't matter for most projects and can be left default. May be the reason for mods conflicting however">Load Priority</Label>
+                <Label  localizations:LocalizationAttachedPropertyHolder.Uid="LoadPriority" Foreground="White" Content="Load Priority">
+                <ToolTip.Tip>
+                  <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="ToolTipLoadPriority" Text="Doesn't matter for most projects and can be left default. May be the reason for mods conflicting however"/>
+                </ToolTip.Tip>
+                </Label>
                 <NumericUpDown CornerRadius="5" x:Name="tb_modLoadPriority" Foreground="Black" Background="#ffcb2e" Value="1"/>
               </StackPanel>
 
               <!-- Mod Required on client -->
               <StackPanel Grid.Column="2" Margin="0,0,10,0">
-                <Label localizations:LocalizationAttachedPropertyHolder.Uid="RequiredOnClient" Foreground="White" ToolTip.Tip="Whether or not your mod is required on Client. True for mods that modify client files, false for server only" HorizontalAlignment="Center">RequiredOnClient</Label>
+                <Label localizations:LocalizationAttachedPropertyHolder.Uid="RequiredOnClient" Foreground="White" HorizontalAlignment="Center" Content="RequiredOnClient">
+                <ToolTip.Tip>
+                  <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="ToolTipRequiredOnClient" Text="Whether or not your mod is required on Client. True for mods that modify client files, false for server only"/>
+                </ToolTip.Tip>
+              </Label>
                 <CheckBox x:Name="tb_modRequiredOnClient" Foreground="Black" IsChecked="true" HorizontalAlignment="Center"/>
               </StackPanel>
 
               <!-- Run on -->
               <StackPanel Grid.Column="3" Margin="0,0,10,0">
-                <Label localizations:LocalizationAttachedPropertyHolder.Uid="RunOn" Foreground="White" ToolTip.Tip="Depends on where your scripts are going to run">Run on</Label>
+                <Label localizations:LocalizationAttachedPropertyHolder.Uid="RunOn" Foreground="White" Content="Run on">
+                <ToolTip.Tip>
+                  <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="ToolTipRunOn" Text="Depends on where your scripts are going to run"/>
+                </ToolTip.Tip>
+                </Label>
                 <ComboBox CornerRadius="5" x:Name="tb_modRunOn" Foreground="Black" Background="#ffcb2e" SelectedIndex="0">
                   <TextBlock>CLIENT</TextBlock>
                   <TextBlock>SERVER</TextBlock>
@@ -80,14 +96,10 @@
 
         <!-- Buttons -->
         <Border Margin="0,10,0,0" BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
-          <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="*"/>
-              <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
+          <Grid ColumnDefinitions="*,10*,auto">
             <Button localizations:LocalizationAttachedPropertyHolder.Uid="ClearButton" CornerRadius="5" Grid.Column="0" Click="OnClearClicked" Background="#ffcb2e">Clear</Button>
-            <Label x:Name="lbl_status" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center" MaxWidth="550"></Label>
-            <Button localizations:LocalizationAttachedPropertyHolder.Uid="CreateButton" CornerRadius="5" Grid.Column="1" Click="OnCreateClicked" Background="#ffcb2e" Content="Create"/>
+            <TextBlock x:Name="lbl_status" Grid.Column="1" VerticalAlignment="Center" Foreground="#ffcb2e" TextAlignment="Center" MaxWidth="550" TextWrapping="Wrap"/>
+            <Button localizations:LocalizationAttachedPropertyHolder.Uid="CreateButton" CornerRadius="5" Grid.Column="2" Click="OnCreateClicked" Background="#ffcb2e" Content="Create"/>
           </Grid>
         </Border>
 
@@ -103,12 +115,20 @@
           <Border BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
             <StackPanel>
               <!-- Mod Folder  -->
-              <Label localizations:LocalizationAttachedPropertyHolder.Uid="ModFolder" Foreground="White" ToolTip.Tip="Path to the mod you want to release">Mod Folder</Label>
+              <Label localizations:LocalizationAttachedPropertyHolder.Uid="ModFolder" Foreground="White" Content="Mod Folder">
+              <ToolTip.Tip>
+                <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="ToolTipModFolder" Text="Path to the mod you want to release"/>
+              </ToolTip.Tip>
+            </Label>
               <TextBox CornerRadius="5" x:Name="tb_folderPathPublish" Foreground="Black" Background="#ffcb2e" Watermark="C:\Games\Origin\Titanfall2\R2Northstar\mods\My.Mod"/>
               <Button localizations:LocalizationAttachedPropertyHolder.Uid="BrowseButton" CornerRadius="5" Click="Publish_OnBrowseClicked" Background="#ffcb2e" Content="Browse"/>
 
               <!-- Output Folder  -->
-              <Label localizations:LocalizationAttachedPropertyHolder.Uid="OutputFolder" Margin="0,10,0,0" Foreground="White" ToolTip.Tip="Path where the release will be stored">Output Folder</Label>
+              <Label localizations:LocalizationAttachedPropertyHolder.Uid="OutputFolder" Margin="0,10,0,0" Foreground="White" Content="Output Folder">
+              <ToolTip.Tip>
+                <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="ToolTipOutputFolder" Text="Path where the release will be stored"/>
+              </ToolTip.Tip>
+              </Label>
               <TextBox CornerRadius="5" x:Name="tb_folderPathOutput" Foreground="Black" Background="#ffcb2e" Watermark="C:\Games\Origin\Titanfall2\R2Northstar\mods\My.Mod\Release"/>
               <Button localizations:LocalizationAttachedPropertyHolder.Uid="BrowseButton" CornerRadius="5" Click="Publish_OnBrowseClickedOutput" Background="#ffcb2e" Content="Browse"/>
             </StackPanel>
@@ -153,7 +173,11 @@
 
               <StackPanel Margin="0,0,10,0">
                 <!-- Icon Path -->
-                <Label localizations:LocalizationAttachedPropertyHolder.Uid="IconPath" Foreground="White" ToolTip.Tip="Path to the mod icon. 256x256 and PNG">Icon Path</Label>
+                <Label localizations:LocalizationAttachedPropertyHolder.Uid="IconPath" Foreground="White" Content="Icon Path">
+                <ToolTip.Tip>
+                  <TextBlock localizations:LocalizationAttachedPropertyHolder.Uid="ToolTipIconPath" Text="Path to the mod icon. 256x256 and PNG"/>
+                </ToolTip.Tip>
+                </Label>
                 <TextBox CornerRadius="5" x:Name="tb_iconPathPublish" Foreground="Black" Background="#ffcb2e" Watermark="C:\Images\icon.png"/>
                 <Button CornerRadius="5" Click="Publish_OnBrowseClickedIcon" Background="#ffcb2e" Content="Browse"/>
               </StackPanel>
@@ -163,14 +187,10 @@
 
           <!-- Buttons -->
           <Border Margin="0,10,0,0" BorderBrush="#ffcb2e" BorderThickness="1" Padding="10" CornerRadius="10">
-            <Grid>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-              </Grid.ColumnDefinitions>
+            <Grid ColumnDefinitions="*,10*,auto">
               <Button localizations:LocalizationAttachedPropertyHolder.Uid="ClearButton" CornerRadius="5" Grid.Column="0" Click="OnClearClickedPublish" Background="#ffcb2e">Clear</Button>
-              <Label x:Name="lbl_statusPublish" VerticalAlignment="Center" Foreground="#ffcb2e" HorizontalContentAlignment="Center" MaxWidth="550"/>
-              <Button localizations:LocalizationAttachedPropertyHolder.Uid="CreateButton" CornerRadius="5" Grid.Column="1" Click="OnCreateClickedPublish" Background="#ffcb2e" Content="Create"/>
+              <TextBlock x:Name="lbl_statusPublish" Grid.Column="1" VerticalAlignment="Center" Foreground="#ffcb2e" TextAlignment="Center" MaxWidth="550" TextWrapping="Wrap" Text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+              <Button localizations:LocalizationAttachedPropertyHolder.Uid="CreateButton" CornerRadius="5" Grid.Column="2" Click="OnCreateClickedPublish" Background="#ffcb2e" Content="Create"/>
             </Grid>
           </Border>
             
