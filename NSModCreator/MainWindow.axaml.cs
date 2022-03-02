@@ -9,6 +9,8 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.IO.Compression;
+using System.Threading;
+using System.Globalization;
 
 namespace NSModCreator
 {
@@ -21,7 +23,7 @@ namespace NSModCreator
         TextBox tb_modWebsitePublish;
         TextBox tb_modDescriptionPublish;
         TextBox tb_modDependenciesPublish;
-        Label lbl_statusPublish;
+        TextBlock lbl_statusPublish;
         TextBox tb_iconPathPublish;
 
         public MainWindow()
@@ -42,7 +44,7 @@ namespace NSModCreator
             tb_modWebsitePublish = this.FindControl<TextBox>("tb_modWebsitePublish");
             tb_modDescriptionPublish = this.FindControl<TextBox>("tb_modDescriptionPublish");
             tb_modDependenciesPublish = this.FindControl<TextBox>("tb_modDependenciesPublish");
-            lbl_statusPublish = this.FindControl<Label>("lbl_statusPublish");
+            lbl_statusPublish = this.FindControl<TextBlock>("lbl_statusPublish");
             tb_iconPathPublish = this.FindControl<TextBox>("tb_iconPathPublish");
         }
 
@@ -55,10 +57,11 @@ namespace NSModCreator
             ComboBox tb_modRunOn = this.FindControl<ComboBox>("tb_modRunOn");
             TextBox tb_modVersion = this.FindControl<TextBox>("tb_modVersion");
             TextBox tb_modDescription = this.FindControl<TextBox>("tb_modDescription");
-            Label lbl_status = this.FindControl<Label>("lbl_status");
+            TextBlock lbl_status = this.FindControl<TextBlock>("lbl_status");
 
-            lbl_status.Content = "Getting Values...";
+            lbl_status.Text = "Getting Values...";
 
+            
             // mod.json
             string path;
             string modName;
@@ -85,7 +88,7 @@ namespace NSModCreator
             }
             catch (NullReferenceException ex)
             {
-                lbl_status.Content = "Error: Some fields have incorrect values!";
+                lbl_status.Text = "Error: Some fields have incorrect values!";
                 return;
             }
 
@@ -98,11 +101,11 @@ namespace NSModCreator
             }
 
             /* format that shit */
-            lbl_status.Content = "Creating Files...";
+            lbl_status.Text = "Creating Files...";
             // make folders
             if (Directory.Exists(path))
             {
-                lbl_status.Content = "Error: Directory/Files already exists!";
+                lbl_status.Text = "Error: Directory/Files already exists!";
                 return;
             }
 
@@ -148,7 +151,7 @@ namespace NSModCreator
             }
 
             /* cleanup*/
-            lbl_status.Content = "Created Mod at " + path.Replace("\\", "/");
+            lbl_status.Text = "Created Mod at " + path.Replace("\\", "/");
             ClearFieldsCreate(tb_folderPath, tb_modName, tb_modLoadPriority, tb_modVersion, tb_modDescription);
         }
 
@@ -160,6 +163,41 @@ namespace NSModCreator
             TextBox tb_modVersion = this.FindControl<TextBox>("tb_modVersion");
             TextBox tb_modDescription = this.FindControl<TextBox>("tb_modDescription");
             ClearFieldsCreate(tb_folderPath, tb_modName, tb_modLoadPriority, tb_modVersion, tb_modDescription);
+        }
+
+        // Initialize variable used for language selection, not necessary if you use a drop down menu
+        string Language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+
+        /* Call this function with Locale codes like "en-US" or "zh-Hans",
+           Check https://docs.microsoft.com/zh-cn/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c */
+        void ChangeLanguageTo(string countrycode) 
+        {
+            System.Globalization.CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(countrycode); // This changes current Culture settings to given Locale
+            Language = countrycode; // Refresh Current Language, not necessary if you use a dropdown menu
+            InitializeComponent(); // idk if this is safe, but we DO need to reload components for the language resource change to work
+
+            // TODO: Dynamically adjust window size here or inside InitializeComponent()
+            // cuz many language have different text height than english which make part of the UI disappear
+        }
+
+        public void OnLangClicked(object sender, RoutedEventArgs e)
+        {
+            /* yanderedev style fancy code for switching language */
+            if (Language == "en-US") 
+            {
+                ChangeLanguageTo("de-DE");
+                return;
+            }
+            if (Language == "de-DE")
+            {
+                ChangeLanguageTo("zh-Hans");
+                return;
+            }
+            if (Language == "zh-Hans")
+            {
+                ChangeLanguageTo("en-US");
+                return;
+            }
         }
 
         private async void Create_OnBrowseClicked(object? sender, RoutedEventArgs e)
@@ -185,14 +223,14 @@ namespace NSModCreator
             // check if all fields are filled out
             if(String.IsNullOrEmpty(tb_folderPathOutput.Text) || String.IsNullOrEmpty(tb_folderPathPublish.Text) || String.IsNullOrEmpty(tb_modNamePublish.Text) ||String.IsNullOrEmpty(tb_modVersionPublish.Text) || String.IsNullOrEmpty(tb_iconPathPublish.Text))
             {
-                lbl_statusPublish.Content = "Error: Some fields are not filled out!";
+                lbl_statusPublish.Text = "Error: Some fields are not filled out!";
                 return;
             }
 
             // make folders
             if (Directory.Exists(tb_folderPathOutput.Text))
             {
-                lbl_statusPublish.Content = "Error: Directory/Files already exists!";
+                lbl_statusPublish.Text = "Error: Directory/Files already exists!";
                 return;
             }
 
@@ -210,7 +248,7 @@ namespace NSModCreator
             }
             catch (Exception)
             {
-                lbl_statusPublish.Content = "Error: Output directory doesnt exist!";
+                lbl_statusPublish.Text = "Error: Output directory doesnt exist!";
                 return;
             }
 
@@ -254,7 +292,7 @@ namespace NSModCreator
 
                 byte[] info = new UTF8Encoding(true).GetBytes(res);
                 fs.Write(info, 0, info.Length);
-                lbl_statusPublish.Content = "Release created at: " + tb_folderPathOutput.Text;
+                lbl_statusPublish.Text = "Release created at: " + tb_folderPathOutput.Text;
             }
 
             // zip it up
@@ -313,7 +351,7 @@ namespace NSModCreator
             }
             catch (Exception)
             {
-                lbl_statusPublish.Content = "Warning: Couldn't find mod.json";
+                lbl_statusPublish.Text = "Warning: Couldn't find mod.json";
             }
         }
 
